@@ -1,9 +1,5 @@
 function App() {
-  const click = () => {
-    console.log("hola mundo");
-  };
-
-  return <button onClick={click}>HOLIS</button>;
+  return <h1>HOLA</h1>;
 }
 
 export default App;
