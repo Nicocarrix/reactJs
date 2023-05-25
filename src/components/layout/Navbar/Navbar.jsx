@@ -60,10 +60,10 @@ const Navbar = () => {
             marginTop: "12px",
           }}
         >
-          <Grid item lg={3} sx={{}}></Grid>
+          <Grid item lg={1} sx={{}}></Grid>
           <Grid
             item
-            lg={4}
+            lg={3}
             sx={{
               gap: 5,
               display: "flex",
@@ -71,7 +71,7 @@ const Navbar = () => {
           >
             <CategoryList />
           </Grid>
-          <Grid item lg={3} sx={{ display: "flex" }}>
+          <Grid item lg={6} sx={{ display: "flex", justifyContent: "end" }}>
             <Grid
               item
               sx={{
