@@ -1,139 +1,92 @@
-import { AccountCircle, Search } from "@mui/icons-material";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+// import { Fragment } from "react";
+// import { Popover, Transition } from "@headlessui/react";
+import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import CartWidget from "./CartWidget";
-import CategoryList from "./CategoryList";
-
-import {
-  Link,
-  Typography,
-  TextField,
-  InputAdornment,
-  Grid,
-} from "@mui/material";
+import CategoryListContainer from "./CategoryListContainer";
 
 const Navbar = () => {
   return (
-    <Grid container sx={{ placeContent: "center" }}>
-      <Grid
-        container
-        sx={{
-          backgroundColor: "#025464",
-          paddingTop: "12px",
-          placeContent: "center",
-        }}
-      >
-        <Grid container sx={{ placeContent: "center" }}>
-          <Grid item lg={2}>
-            <Typography variant="h6" component="div" sx={{ color: "#fff" }}>
-              N&M COMMERCE
-            </Typography>
-          </Grid>
-          <Grid item sx={{}} lg={6}>
-            <TextField
-              sx={{
-                width: "60%",
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "2px",
-                  backgroundColor: "white",
-                },
-              }}
-              id="outlined-helperText"
-              placeholder="Buscar"
-              size="small"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Search />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          sx={{
-            paddingLeft: 5,
-            paddingRight: 5,
-            marginBottom: 1.3,
-            placeContent: "center",
-            marginTop: "12px",
-          }}
+    <div className="bg-white">
+      <header className="relative bg-white">
+        <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
+          Envio gratis en compras de mas de $100
+        </p>
+
+        <nav
+          aria-label="Top"
+          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
-          <Grid item lg={1} sx={{}}></Grid>
-          <Grid
-            item
-            lg={3}
-            sx={{
-              gap: 5,
-              display: "flex",
-            }}
-          >
-            <CategoryList />
-          </Grid>
-          <Grid item lg={6} sx={{ display: "flex", justifyContent: "end" }}>
-            <Grid
-              item
-              sx={{
-                display: "flex",
-                gap: 3,
-              }}
-            >
-              <Grid item sx={{ display: "flex" }}>
-                <AccountCircle sx={{ color: "#fff" }} />
-                <Link
-                  underline="none"
-                  variant="h6"
-                  href="#"
-                  sx={{
-                    display: { xs: "none", sm: "block" },
-                    paddingLeft: "6px",
-                    fontSize: "12px",
-                    fontWeight: 100,
-                    color: "#fff",
-                    lineHeight: 2,
-                  }}
-                >
-                  Nombre
-                </Link>
-              </Grid>
-              <Link
-                underline="none"
-                variant="h6"
-                href="#"
-                sx={{
-                  display: { xs: "none", sm: "block" },
-                  paddingLeft: "6px",
-                  fontSize: "12px",
-                  fontWeight: 100,
-                  color: "#fff",
-                  lineHeight: 2,
-                }}
+          <div className="border-b border-gray-200">
+            <div className="flex h-16 items-center">
+              {/* MENU BUTTON */}
+
+              <button
+                type="button"
+                className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
               >
-                Mis Compras
-              </Link>
-              <Link
-                underline="none"
-                variant="h6"
-                href="#"
-                sx={{
-                  display: { xs: "none", sm: "block" },
-                  paddingLeft: "6px",
-                  fontSize: "12px",
-                  fontWeight: 100,
-                  color: "#fff",
-                  lineHeight: 2,
-                }}
-              >
-                Favoritos
-              </Link>
-              <NotificationsIcon sx={{ color: "#fff" }} />
-            </Grid>
-            <CartWidget />
-          </Grid>
-        </Grid>
-      </Grid>
-    </Grid>
+                <span className="sr-only">Abrir Menu</span>
+                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              </button>
+
+              {/* Logo */}
+
+              <div className="ml-4 flex lg:ml-0">
+                <a href="#">
+                  <span className="sr-only">N&M</span>
+                  <img
+                    className="h-8 w-auto"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    alt=""
+                  />
+                </a>
+              </div>
+
+              {/* MENUS */}
+              <CategoryListContainer />
+
+              <div className="ml-auto flex items-center">
+                {/* LOG IN */}
+
+                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                  <a
+                    href="#"
+                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                  >
+                    Iniciar Sesion
+                  </a>
+                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+                  <a
+                    href="#"
+                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                  >
+                    Crear Cuenta
+                  </a>
+                </div>
+
+                {/* SEARCH */}
+
+                <form className="flex lg:ml-8 items-center">
+                  <MagnifyingGlassIcon
+                    className="text-gray-400 hover:text-gray-500 h-6 w-6 cursor-pointer"
+                    aria-hidden="true"
+                  />
+                  <input
+                    type="text"
+                    className="ml-3 p-2 border-2 focus:outline-none focus:border-blue-700"
+                  />
+                </form>
+
+                {/* CART */}
+
+                <div className="ml-4 flow-root lg:ml-6">
+                  <CartWidget />
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </div>
   );
 };
 

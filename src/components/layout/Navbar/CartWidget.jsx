@@ -1,28 +1,18 @@
-import { Link, Badge } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 const CartWidget = () => {
-  const StyledBadge = styled(Badge)(({ theme }) => ({
-    "& .MuiBadge-badge": {
-      right: -3,
-      top: 13,
-      border: `${theme.palette.background.paper}`,
-      padding: "0 1px",
-    },
-  }));
   return (
-    <Link
-      href="#"
-      sx={{
-        display: { xs: "none", sm: "block" },
-        color: "#fff",
-      }}
-    >
-      <StyledBadge badgeContent={4} color="warning">
-        <ShoppingCartIcon />
-      </StyledBadge>
-    </Link>
+    <>
+      <a href="#" className="group -m-2 flex items-center p-2">
+        <ShoppingBagIcon
+          className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+          aria-hidden="true"
+        />
+        <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+          24
+        </span>
+      </a>
+    </>
   );
 };
 
