@@ -1,14 +1,14 @@
 // import { Fragment } from "react";
 // import { Popover, Transition } from "@headlessui/react";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import CartWidget from "./CartWidget";
 import CategoryListContainer from "./CategoryListContainer";
+import CartWidgetContainer from "./CartWidgetContainer";
 
 const Navbar = () => {
   return (
     <div className="bg-white">
       <header className="relative bg-white">
-        <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
+        <p className="flex h-10 items-center justify-center bg-primary-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
           Envio gratis en compras de mas de $100
         </p>
 
@@ -28,14 +28,14 @@ const Navbar = () => {
                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               </button>
 
-              {/* Logo */}
+              {/* LOGO */}
 
               <div className="ml-4 flex lg:ml-0">
                 <a href="#">
                   <span className="sr-only">N&M</span>
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    src="https://res.cloudinary.com/djdh6vajl/image/upload/v1685388533/Resources/online-store_dg5j01.png"
                     alt=""
                   />
                 </a>
@@ -72,14 +72,14 @@ const Navbar = () => {
                   />
                   <input
                     type="text"
-                    className="ml-3 p-2 border-2 focus:outline-none focus:border-blue-700"
+                    className="ml-3 p-2 border-2 focus:outline-none focus:border-primary-700"
                   />
                 </form>
 
                 {/* CART */}
 
                 <div className="ml-4 flow-root lg:ml-6">
-                  <CartWidget />
+                  <CartWidgetContainer />
                 </div>
               </div>
             </div>
