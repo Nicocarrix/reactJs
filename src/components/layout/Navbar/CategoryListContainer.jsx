@@ -4,63 +4,41 @@ const CategoryListContainer = () => {
   const navigation = {
     categories: [
       {
-        id: "mujer",
-        name: "Mujer",
-
-        sections: [
+        id: "ropa",
+        name: "Ropa",
+        category: [
           {
-            id: "ropa",
-            name: "Ropa",
-            items: [
-              { name: "Tops", href: "#" },
-              { name: "Vestidos", href: "#" },
-              { name: "Pantalones", href: "#" },
-              { name: "Sueters", href: "#" },
-              { name: "Remeras", href: "#" },
-              { name: "Buscar Todo", href: "#" },
-            ],
+            name: "Remeras",
+          },
+        ],
+
+        gender: [
+          {
+            name: "Remeras Hombre",
+            category: "hombre",
           },
           {
-            id: "accesorios",
-            name: "Accesorios",
-            items: [
-              { name: "Relojes", href: "#" },
-              { name: "Billeteras", href: "#" },
-              { name: "Mochilas", href: "#" },
-            ],
+            name: "Remeras Mujer",
+            category: "mujer",
           },
         ],
       },
       {
-        id: "hombre",
-        name: "Hombre",
-
-        sections: [
+        id: "zapatillas",
+        name: "Zapatillas",
+        category: [
           {
-            id: "ropa",
-            name: "Ropa",
-            items: [
-              { name: "Pantalones", href: "#" },
-              { name: "Sueters", href: "#" },
-              { name: "Remeras", href: "#" },
-              { name: "Buscar Todo", href: "#" },
-            ],
+            name: "Zapatillas",
           },
+        ],
+
+        gender: [
           {
-            id: "accesorios",
-            name: "Accesorios",
-            items: [
-              { name: "Relojes", href: "#" },
-              { name: "Billeteras", href: "#" },
-              { name: "Mochilas", href: "#" },
-            ],
+            name: "Ver todo",
+            category: "zapatillas",
           },
         ],
       },
-    ],
-    pages: [
-      { name: "Compania", href: "#" },
-      { name: "Tiendas", href: "#" },
     ],
   };
 

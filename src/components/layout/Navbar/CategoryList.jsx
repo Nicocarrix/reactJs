@@ -1,10 +1,11 @@
 import { Popover, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 const CategoryList = ({ navigation, classNames }) => {
   return (
     <>
-      <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
+      <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch z-10">
         <div className="flex h-full space-x-8 ">
           {navigation.categories.map((category) => (
             <Popover key={category.name} className="flex">
@@ -42,27 +43,27 @@ const CategoryList = ({ navigation, classNames }) => {
                         <div className="mx-2 max-w-xl px-8">
                           <div className="grid grid-cols-1 py-9">
                             <div className="row-start-1 grid grid-cols-2 gap-x-2 gap-y-10 text-sm">
-                              {category.sections.map((section) => (
-                                <div key={section.name}>
+                              {category.category.map((item) => (
+                                <div key={item.name}>
                                   <p
-                                    id={`${section.name}-heading`}
+                                    id={`${item.name}-heading`}
                                     className="font-medium text-gray-900"
                                   >
-                                    {section.name}
+                                    {item.name}
                                   </p>
                                   <ul
                                     role="list"
-                                    aria-labelledby={`${section.name}-heading`}
+                                    aria-labelledby={`${item.name}-heading`}
                                     className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                   >
-                                    {section.items.map((item) => (
-                                      <li key={item.name} className="flex">
-                                        <a
-                                          href={item.href}
+                                    {category.gender.map((item) => (
+                                      <li key={item.category} className="flex">
+                                        <Link
+                                          to={`/category/${item.category}`}
                                           className="hover:text-gray-800"
                                         >
                                           {item.name}
-                                        </a>
+                                        </Link>
                                       </li>
                                     ))}
                                   </ul>
@@ -77,15 +78,6 @@ const CategoryList = ({ navigation, classNames }) => {
                 </>
               )}
             </Popover>
-          ))}
-          {navigation.pages.map((page) => (
-            <a
-              key={page.name}
-              href={page.href}
-              className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-            >
-              {page.name}
-            </a>
           ))}
         </div>
       </Popover.Group>

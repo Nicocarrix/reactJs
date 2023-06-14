@@ -10,8 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-trash
 *.local
+trash
 
 # Editor directories and files
 .vscode/*
