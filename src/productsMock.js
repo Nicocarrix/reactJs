@@ -11,7 +11,7 @@ export const products = [
   {
     id: 2,
     title: "REMERA ADIDAS ORIGINALS VICTORY",
-    price: 22999,
+    price: 22.999,
     stock: 5,
     marca: "ADIDAS",
     category: "hombre",

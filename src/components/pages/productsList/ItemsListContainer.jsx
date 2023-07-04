@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
-import ItemsList from "./itemsList";
-import { products } from "../../../productsMock";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import ItemsList from './itemsList';
+import { useParams } from 'react-router-dom';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../../firebaseConfig';
+import FilterItems from '../../common/FilterItems';
+import CardLoauder from '../../common/productCards/CardLoader';
 
 const ItemsListContainer = () => {
   const [items, setItems] = useState([]);
@@ -9,17 +12,42 @@ const ItemsListContainer = () => {
   const { category } = useParams();
 
   useEffect(() => {
-    let productsFilter = products.filter((e) => e.category === category);
-    console.log(productsFilter);
+    let itemsColecction = collection(db, 'products');
 
-    const promise = new Promise((resolve) => {
-      resolve(category ? productsFilter : products);
-    });
+    let querys;
 
-    promise.then((res) => setItems(res)).catch((err) => console.log(err));
+    if (category) {
+      querys = query(itemsColecction, where('category', '==', category));
+    } else {
+      querys = itemsColecction;
+    }
+
+    getDocs(querys)
+      .then(res => {
+        let products = res.docs.map(element => {
+          return {
+            id: element.id,
+            ...element.data(),
+          };
+        });
+        setItems(products);
+      })
+      .catch(err => console.log(err));
   }, [category]);
 
-  return <ItemsList items={items} />;
+  return (
+    <div>
+      {items.length > 0 ? (
+        <ItemsList items={items} />
+      ) : (
+        <section className="grid grid-flow-col w-auto mt-14 justify-center gap-1">
+          <FilterItems />
+
+          <CardLoauder />
+        </section>
+      )}
+    </div>
+  );
 };
 
 export default ItemsListContainer;

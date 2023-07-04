@@ -15,8 +15,8 @@ const CategoryList = ({ navigation, classNames }) => {
                     <Popover.Button
                       className={classNames(
                         open
-                          ? "border-primary-600 text-primary-600"
-                          : "border-transparent text-gray-700 hover:text-gray-800",
+                          ? "border-primary-700 text-primary-700"
+                          : "border-transparent text-white hover:text-primary-700",
                         "relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out"
                       )}
                     >
@@ -33,13 +33,13 @@ const CategoryList = ({ navigation, classNames }) => {
                     leaveFrom="opacity-00"
                     leaveTo="opacity-0"
                   >
-                    <Popover.Panel className="absolute inset-x-0 top-full text-sm text-gray-500 max-w-md">
+                    <Popover.Panel className="absolute top-full text-sm text-main-50 max-w-md">
                       <div
                         className="absolute inset-0 top-0 bg-white shadow"
                         aria-hidden="true"
                       />
 
-                      <div className="relative bg-white ">
+                      <div className="relative bg-white">
                         <div className="mx-2 max-w-xl px-8">
                           <div className="grid grid-cols-1 py-9">
                             <div className="row-start-1 grid grid-cols-2 gap-x-2 gap-y-10 text-sm">
@@ -47,7 +47,7 @@ const CategoryList = ({ navigation, classNames }) => {
                                 <div key={item.name}>
                                   <p
                                     id={`${item.name}-heading`}
-                                    className="font-medium text-gray-900"
+                                    className="font-medium text-main"
                                   >
                                     {item.name}
                                   </p>

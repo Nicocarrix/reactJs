@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-trash
+
 
 # Editor directories and files
 .vscode/*
@@ -23,3 +23,6 @@ trash
 *.njsproj
 *.sln
 *.sw?
+
+.txt
+.env

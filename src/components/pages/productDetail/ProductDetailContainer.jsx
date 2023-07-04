@@ -1,37 +1,55 @@
-import { useEffect, useState } from "react";
-import ProductDetail from "./ProductDetail";
-import { products } from "../../../productsMock";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from 'react';
+import ProductDetail from './ProductDetail';
+import { useParams } from 'react-router-dom';
+import { CartContext } from '../../../context/CartContext';
+import { db } from '../../../firebaseConfig';
+import { collection, getDoc, doc } from 'firebase/firestore';
+import { toast } from 'react-toastify';
 
 const ProductDetailContainer = () => {
+  const notify = () =>
+    toast.success('Success Notification !', {
+      position: toast.POSITION.TOP_CENTER,
+    });
+
   const [productSelected, setProductSelect] = useState({});
+
+  const { agregarCarrito } = useContext(CartContext);
 
   const { id } = useParams();
 
-  const onAdd = (cantidad) => {
+  const onAdd = cantidad => {
     let data = {
       ...productSelected,
       quantity: cantidad,
     };
 
-    console.log(data);
+    agregarCarrito(data);
+
+    notify();
   };
 
   useEffect(() => {
-    let productFind = products.find((product) => product.id === +id);
+    let itemscollection = collection(db, 'products');
 
-    const getProduct = new Promise((res) => {
-      res(productFind);
-    });
+    let refDoc = doc(itemscollection, id);
 
-    getProduct
-      .then((res) => setProductSelect(res))
-      .catch((err) => console.log(err));
+    getDoc(refDoc)
+      .then(res => {
+        setProductSelect({ id: res.id, ...res.data() });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }, [id]);
 
-  console.log(productSelected);
+  // console.log(productSelected);
 
-  return <ProductDetail productSelected={productSelected} onAdd={onAdd} />;
+  return (
+    <>
+      <ProductDetail productSelected={productSelected} onAdd={onAdd} />
+    </>
+  );
 };
 
 export default ProductDetailContainer;

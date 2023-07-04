@@ -1,4 +1,7 @@
-import { ItemCount } from "../../common/ItemCount";
+import { ToastContainer } from 'react-toastify';
+import { ItemCount } from '../../common/ItemCount';
+import 'react-toastify/dist/ReactToastify.css';
+
 const ProductDetail = ({ productSelected, onAdd }) => {
   return (
     <>
@@ -38,6 +41,7 @@ const ProductDetail = ({ productSelected, onAdd }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
