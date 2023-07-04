@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Cart = ({ cart, clearCart, eliminateProduct }) => {
+  console.log(cart)
 
   return (
     <div className="w-full h-full">
@@ -34,7 +35,7 @@ const Cart = ({ cart, clearCart, eliminateProduct }) => {
               </div>
               {cart.map((product) => {
                 return (
-                    <div className="" key={product}>
+                    <div className="" key={product.id}>
                       <div
                         key={product.id}
                         className="flex h-full text-center items-center mt-4 border rounded pl-3 pr-3"

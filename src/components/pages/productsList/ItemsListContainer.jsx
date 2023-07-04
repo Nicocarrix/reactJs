@@ -14,15 +14,15 @@ const ItemsListContainer = () => {
   useEffect(() => {
     let itemsColecction = collection(db, 'products');
 
-    let querys;
+    let consulta;
 
     if (category) {
-      querys = query(itemsColecction, where('category', '==', category));
+      consulta = query(itemsColecction, where('category', '==', category));
     } else {
-      querys = itemsColecction;
+      consulta = itemsColecction;
     }
 
-    getDocs(querys)
+    getDocs(consulta)
       .then(res => {
         let products = res.docs.map(element => {
           return {
