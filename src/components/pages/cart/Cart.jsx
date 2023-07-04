@@ -34,8 +34,7 @@ const Cart = ({ cart, clearCart, eliminateProduct }) => {
               </div>
               {cart.map((product) => {
                 return (
-                  <>
-                    <div className="">
+                    <div className="" key={product}>
                       <div
                         key={product.id}
                         className="flex h-full text-center items-center mt-4 border rounded pl-3 pr-3"
@@ -64,7 +63,6 @@ const Cart = ({ cart, clearCart, eliminateProduct }) => {
                         </div>
                       </div>
                     </div>
-                  </>
                 );
               })}
             </div>
