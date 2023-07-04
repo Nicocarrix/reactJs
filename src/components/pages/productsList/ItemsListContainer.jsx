@@ -22,17 +22,15 @@ const ItemsListContainer = () => {
       consulta = itemsColecction;
     }
 
-    getDocs(consulta)
-      .then(res => {
-        let products = res.docs.map(element => {
-          return {
-            id: element.id,
-            ...element.data(),
-          };
-        });
-        setItems(products);
-      })
-      .catch(err => console.log(err));
+    getDocs(consulta).then(res => {
+      let products = res.docs.map(element => {
+        return {
+          id: element.id,
+          ...element.data(),
+        };
+      });
+      setItems(products);
+    });
   }, [category]);
 
   return (
