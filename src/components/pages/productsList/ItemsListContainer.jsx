@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import ItemsList from './itemsList';
+import ItemsList from './ItemsList';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../../firebaseConfig';
@@ -22,15 +22,17 @@ const ItemsListContainer = () => {
       consulta = itemsColecction;
     }
 
-    getDocs(consulta).then(res => {
-      let products = res.docs.map(element => {
-        return {
-          id: element.id,
-          ...element.data(),
-        };
-      });
-      setItems(products);
-    });
+    getDocs(consulta)
+      .then(res => {
+        let products = res.docs.map(element => {
+          return {
+            id: element.id,
+            ...element.data(),
+          };
+        });
+        setItems(products);
+      })
+      .catch(err => console.log(err));
   }, [category]);
 
   return (
