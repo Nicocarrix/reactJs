@@ -40,7 +40,7 @@ const ItemsListContainer = () => {
       {items.length > 0 ? (
         <ItemsList items={items} />
       ) : (
-        <section className="grid grid-flow-col w-auto mt-14 justify-center gap-1">
+        <section className="grid grid-flow-col w-auto mt-14 justify-center gap-1 max-sm:flex max-sm:flex-col max-sm:items-center">
           <FilterItems />
 
           <CardLoauder />

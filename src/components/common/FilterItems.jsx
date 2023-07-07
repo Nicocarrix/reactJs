@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const FilterItems = () => {
   return (
-    <div className="flex justify-center border  rounded-sm bg-white h-screen w-60">
+    <div className="max-md:h-28 max-lg:h-auto flex justify-center border  rounded-sm bg-white h-screen w-60">
         <Link
           to="/"
           className="relative inline-block px-4 py-2 font-medium group h-max mt-8"

@@ -1,10 +1,11 @@
 // import { Fragment } from "react";
 // import { Popover, Transition } from "@headlessui/react";
-import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import CategoryListContainer from "./CategoryListContainer";
-import CartWidgetContainer from "./CartWidgetContainer";
-import { Link } from "react-router-dom";
-import "./navbar.css";
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import CategoryListContainer from './CategoryListContainer';
+import CartWidgetContainer from './CartWidgetContainer';
+import { Link } from 'react-router-dom';
+import './navbar.css';
+import MobileListContainer from './MobileListContainer';
 
 const Navbar = () => {
   return (
@@ -23,18 +24,12 @@ const Navbar = () => {
               <div className="flex h-16 items-center">
                 {/* MENU BUTTON */}
 
-                <button
-                  type="button"
-                  className="rounded-md bg-main-50 p-2 text-primary-800 lg:hidden"
-                >
-                  <span className="sr-only">Abrir Menu</span>
-                  <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-                </button>
+                <MobileListContainer />
 
                 {/* LOGO */}
 
-                <div className="ml-4 flex lg:ml-0">
-                  <Link to="/">
+                <div className="ml-4 flex lg:ml-0 ">
+                  <Link to="/" className="">
                     <span className="sr-only">N&M</span>
                     <img
                       className="h-8 w-auto"
@@ -45,7 +40,8 @@ const Navbar = () => {
                 </div>
 
                 {/* MENUS */}
-                <CategoryListContainer />
+
+                <CategoryListContainer className="" />
 
                 <div className="ml-auto flex items-center">
                   {/* LOG IN */}
@@ -68,7 +64,7 @@ const Navbar = () => {
 
                   {/* SEARCH */}
 
-                  <form className="flex lg:ml-8 items-center">
+                  <form className="flex lg:ml-8 items-center max-sm:hidden">
                     <MagnifyingGlassIcon
                       className="text-white hover:text-primary-400 h-6 w-6 cursor-pointer"
                       aria-hidden="true"

@@ -1,26 +1,27 @@
-import { Popover, Transition } from "@headlessui/react";
-import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Popover, Transition } from '@headlessui/react';
+import { Bars3Icon } from '@heroicons/react/24/outline';
+import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
-const CategoryList = ({ navigation, classNames }) => {
+const MobileList = ({ navigation, classNames }) => {
   return (
     <>
-      <Popover.Group className="hidden lg:ml-8 lg:bloc lg:self-stretchk  z-10">
+      <Popover.Group className="lg:ml-8 lg:block lg:self-stretchk  z-10">
         <div className="flex h-full space-x-8 ">
-          {navigation.categories.map((category) => (
-            <Popover key={category.name} className="flex">
+          {navigation.categories.map(category => (
+            <Popover key={category} className="flex">
               {({ open }) => (
                 <>
                   <div className="relative flex ">
                     <Popover.Button
                       className={classNames(
                         open
-                          ? "border-primary-700 text-primary-700"
-                          : "border-transparent text-white hover:text-primary-700",
-                        "relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out"
+                          ? ' text-white'
+                          : 'border-transparent text-white hover:text-primary-700 max-sm:hover:text-white',
+                        'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                       )}
                     >
-                      {category.name}
+                      <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
                   </div>
 
@@ -43,7 +44,7 @@ const CategoryList = ({ navigation, classNames }) => {
                         <div className="mx-2 max-w-xl px-8">
                           <div className="grid grid-cols-1 py-9">
                             <div className="row-start-1 grid grid-cols-2 gap-x-2 gap-y-10 text-sm">
-                              {category.category.map((item) => (
+                              {category.category.map(item => (
                                 <div key={item.name}>
                                   <p
                                     id={`${item.name}-heading`}
@@ -56,7 +57,7 @@ const CategoryList = ({ navigation, classNames }) => {
                                     aria-labelledby={`${item.name}-heading`}
                                     className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                   >
-                                    {category.gender.map((item) => (
+                                    {category.gender.map(item => (
                                       <li key={item.category} className="flex">
                                         <Link
                                           to={`/category/${item.category}`}
@@ -85,4 +86,4 @@ const CategoryList = ({ navigation, classNames }) => {
   );
 };
 
-export default CategoryList;
+export default MobileList;

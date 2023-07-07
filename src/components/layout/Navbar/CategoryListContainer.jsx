@@ -1,5 +1,6 @@
 import CategoryList from "./CategoryList";
 
+
 const CategoryListContainer = () => {
   const navigation = {
     categories: [
@@ -48,6 +49,7 @@ const CategoryListContainer = () => {
 
   return (
     <>
+      
       <CategoryList navigation={navigation} classNames={classNames} />
     </>
   );
