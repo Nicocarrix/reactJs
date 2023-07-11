@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const MobileList = ({ navigation, classNames }) => {
   return (
     <>
-      <Popover.Group className="lg:ml-8 lg:block lg:self-stretchk  z-10">
+      <Popover.Group className="lg:ml-8 lg:hidden lg:self-stretchk  z-10">
         <div className="flex h-full space-x-8 ">
           {navigation.categories.map(category => (
             <Popover key={category} className="flex">

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const CategoryList = ({ navigation, classNames }) => {
   return (
     <>
-      <Popover.Group className="hidden lg:ml-8 lg:bloc lg:self-stretchk  z-10">
+      <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretchk  z-10">
         <div className="flex h-full space-x-8 ">
           {navigation.categories.map((category) => (
             <Popover key={category.name} className="flex">
